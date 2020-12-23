@@ -1,5 +1,5 @@
 # CVmarathon_50days
-### 電腦視覺與深度學習馬拉松
+### Computer Vision and Deep Learning Marathson
 
 
 
