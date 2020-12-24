@@ -98,6 +98,32 @@ model.add(Flatten()) ##Flatten完尺寸如何變化？
 model.add(Dense(28)) ##全連接層使用28個units
 ```
 
+- [x] Day14
+```python
+input_shape = (32, 32, 3)
+
+model = Sequential()
+
+##  Conv2D-BN-Activation('sigmoid') 
+
+#BatchNormalization主要參數：
+#momentum: Momentum for the moving mean and the moving variance.
+#epsilon: Small float added to variance to avoid dividing by zero.
+
+model.add(Conv2D(10,(3,3),input_shape=(32,32,3)))
+model.add(BatchNormalization(momentum=0.99, epsilon=0.001)) 
+model.add(Activation('sigmoid'))
+
+
+##、 Conv2D-BN-Activation('relu')
+model.add(Conv2D(10,(3,3)))
+model.add(BatchNormalization(momentum=0.99, epsilon=0.001)) 
+model.add(Activation('relu'))
+
+
+model.summary()
+```
+
 
 
 
