@@ -123,7 +123,39 @@ model.add(Activation('relu'))
 
 model.summary()
 ```
+- [x] Day15
 
+```python
+classifier=Sequential()
+
+#卷積組合
+classifier.add(Convolution2D(32,(3,3), input_shape=(32,32,3)))#32,3,3,input_shape=(32,32,3),activation='relu''
+classifier.add(BatchNormalization(momentum=0.99,epsilon=0.001))
+classifier.add(Activation('relu'))
+classifier.add(MaxPooling2D(pool_size=(2,2),padding='valid'))
+
+classifier.add(Convolution2D(32,(3,3)))
+classifier.add(BatchNormalization(momentum=0.99,epsilon=0.001))
+classifier.add(Activation('relu'))
+classifier.add(MaxPooling2D(pool_size=(2,2),padding='valid'))
+
+#flatten
+classifier.add(Flatten())
+
+#FC
+classifier.add(Dense(128,activation='relu')) #output_dim=100,activation=relu
+classifier.add(Dense(64,activation='relu'))
+classifier.add(Dense(32,activation='relu'))
+#輸出
+classifier.add(Dense(10,activation='sigmoid'))
+
+#超過兩個就要選categorical_crossentrophy
+classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+classifier.fit(x_train,y_train,batch_size=100,epochs=10)
+
+classifier.predict(x_test)
+classifier.evaluate(x_test,y_test)
+```
 
 
 
