@@ -12,6 +12,15 @@
 - [x] Day06  [作業連結](https://github.com/a227799770055/CVmarathon_50days/blob/main/D6/Day006_affine_HW.ipynb)
 
 
+- [x] Day21
+```python
+x = model.output
 
+'''可以參考Cifar10實作章節,自行填入'''
+x = Dense(128, activation='relu')(x)
+predictions = Dense(output_dim=10,activation='softmax')(x)
+model = Model(inputs=model.input, outputs=predictions)
+print('Model深度：', len(model.layers))
+```
 
 
