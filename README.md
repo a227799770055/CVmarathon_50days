@@ -116,6 +116,26 @@ txt_path='/home/gapcmgr/kt_privacy/pySourceCode/darknet/Racoon_Kangaroo/kangaroo
 main()
 ########
 
+import random
+
+def shuffle_array(file_path):
+    res=[]
+    with open (file_path, 'r') as f:
+        for i in f:
+            # print(i)
+            res.append(i[:-1])
+    print(res)
+    random.shuffle(res)
+    with open (file_path, 'w') as f:
+        for i in res:
+            # print(i)
+            f.write(i+'\n')
+
+
+file_path = ['/home/gapcmgr/kt_privacy/pySourceCode/darknet/Racoon_Kangaroo/training_set.txt',
+'/home/gapcmgr/kt_privacy/pySourceCode/darknet/Racoon_Kangaroo/validation_set.txt']
+for path in file_path:
+    shuffle_array(path)
 
 
             
